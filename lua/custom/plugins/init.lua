@@ -14,6 +14,15 @@ return {
 
       vim.keymap.set('n', '<leader>h', function()
         harpoon:list():add()
+      end, { desc = '' })
+      vim.keymap.set('n', '<C-e>', function()
+        harpoon.ui.toggle_quick_menu(harpoon:list())
+      end)
+      vim.keymap.set('n', '<C-S-P>', function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set('n', '<C-S-P>', function()
+        harpoon:list():prev()
       end)
     end,
   },

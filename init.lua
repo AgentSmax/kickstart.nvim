@@ -143,7 +143,13 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = {
+  tab = '▏ ',
+  trail = '·',
+  nbsp = '␣',
+  leadmultispace = '▏···',
+}
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -578,6 +584,13 @@ require('lazy').setup({
         -- tsserver = {},
         --
 
+        tsserver = {
+          cmd = { 'typescript-language-server', '--stdio' },
+          filetypes = { 'javascript', 'javascriptreact', 'javascript.tsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+          -- root_dir = function(fname)
+          --   return util.root_pattern 'tsconfig.json'(fname) or util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
+          -- end,
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -652,6 +665,11 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        typescript = { { 'prettierd', 'prettier' } },
+        javascript = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
