@@ -1,5 +1,5 @@
 Required npm packages:
 
 ```
-npm install -g prettierd prettier typescript typescript-language-server
+npm install -g @fsouza/prettierd prettier typescript typescript-language-server
 ```
