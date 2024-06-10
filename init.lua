@@ -610,6 +610,23 @@ require('lazy').setup({
             },
           },
         },
+        intelephense = {
+          cmd = { 'intelephense', '--stdio' },
+          filetypes = { 'php' },
+          root_dir = function(fname)
+            return vim.loop.cwd()
+          end,
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 1000000,
+              },
+              format = {
+                braces = 'k&r',
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
